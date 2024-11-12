@@ -49,7 +49,7 @@ This workaround forces Gradle to pick the first occurrence of libc++_shared.so, 
 3. Provide a USERNAME and PASSSWORD for plivo login
 4. Build and run the app on a physical Android device.
 5. Observe the Mapbox map view as the background.
-6. Click the "Login with Plivo" button at the bottom center.
+6. Click the "Plivo login" button at the bottom center.
 7. The app crashes due to missing native methods from the Plivo SDK.
 
 ## 🤔 Expected Behavior
