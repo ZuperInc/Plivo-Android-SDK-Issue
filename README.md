@@ -220,3 +220,52 @@ The app crashes when the Plivo login button is clicked. Please find the logs bel
 
 ```
 
+## NDK analysis
+We are not sure if error is due to NDK conflicts, but we were able to find the NDK versions of other dependencies that we depend on
+
+### Mapbox NDK versions
+- Using `llvm-readelf`, we found that the current version of mapbox that we are using uses NDK 23
+
+```
+> llvm-readelf -p .note.android.ident libc++_shared.so
+String dump of section '.note.android.ident':
+[     0] .
+[     4] .
+[     8] .
+[     c] Android
+[    14] .
+[    18] r23c
+[    58] 8568313
+
+> llvm-readelf -p .note.android.ident libmapbox-common.so
+String dump of section '.note.android.ident':
+[     0] .
+[     4] .
+[     8] .
+[     c] Android
+[    14] .
+[    18] r23c
+[    58] 8568313
+```
+
+### Plivo
+- For plivo, we are not able to determine this from our end since the information is stipped off
+
+```
+```
+>llvm-readelf -p .note.android.ident libc++_shared.so
+llvm-readelf: warning: 'libc++_shared.so': could not find section '.note.android.ident'
+
+>llvm-readelf -p .note.android.ident libjingle_peerconnection_so.so
+String dump of section '.note.android.ident':
+[     0] .
+[     4] .
+[     8] .
+[     c] Android
+[    14] .
+[    18] r23
+[    58] 7599858
+
+>llvm-readelf -p .note.android.ident librtcsip_jni.so
+llvm-readelf: warning: 'librtcsip_jni.so': could not find section '.note.android.ident'
+```
