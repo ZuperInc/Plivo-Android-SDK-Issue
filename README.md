@@ -252,7 +252,6 @@ String dump of section '.note.android.ident':
 - For plivo, we are not able to determine this from our end since the information is stipped off
 
 ```
-```
 >llvm-readelf -p .note.android.ident libc++_shared.so
 llvm-readelf: warning: 'libc++_shared.so': could not find section '.note.android.ident'
 
