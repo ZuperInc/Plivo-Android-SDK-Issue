@@ -53,7 +53,7 @@ android {
 }
 
 dependencies {
-
+    implementation(fileTree(mapOf("dir" to "libs", "include" to listOf("*.aar"))))
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
@@ -65,7 +65,7 @@ dependencies {
     implementation(libs.mapbox.android)
     implementation(libs.mapbox.compose)
     implementation(libs.opencv)
-    implementation(libs.plivo.endpoint)
+//    implementation(libs.plivo.endpoint)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
